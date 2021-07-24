@@ -2,11 +2,8 @@
 
 <pre>
 <code>
-public class BootSpringBootApplication {
-  public static void main(String[] args) {
-    System.out.println("Hello, Honeymon");
-  }
-
-}
+1. install
+2. install
+3. install
 </code>
 </pre>
