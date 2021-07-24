@@ -72,6 +72,21 @@ $ sudo systemctl restart docker
 </code>
 </pre>
 
+<pre>
+<code>
+
+$ sudo apt-get update & sudo apt-get install -y nvidia-container-toolkit
+
+
+</code>
+</pre>
+
+<pre>
+<code>
+$ sudo systemctl restart docker
+</code>
+</pre>
+
 * 2 단계 : pytorch가 사용가능한 이미지 다운
 <pre>
 <code>
@@ -124,7 +139,6 @@ root@_______:/workspace# nvidia-smi
 간단한 pytorch 분류 모델이 들어가 있는 이미지 다운로드 후 확인
 ----------------------------------------------------------
 
-
 * 1 단계 : 이미지 다운로드
 <pre>
 <code>
@@ -155,13 +169,13 @@ $ sudo docker ps
 </pre>
 <pre>
 
-* 4 단계 : 컨테이너 실행
+* 5 단계 : 컨테이너 실행
 <pre>
 <code>
 $ sudo docker exec -it pytorch_classification bash
 </code>
 </pre>
-<pre>
+
 
 * 컨테이너 접속 -> workspace에 docker_mount_test.py, gpu_test_pytorch.ipynb 두 개의 파일이 존재
 * docker_mount_test.py : torch 사용여부 버전 확인
