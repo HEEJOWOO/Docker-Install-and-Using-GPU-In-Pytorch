@@ -141,7 +141,6 @@ $ sudo docker exec -it pytorch_classification bash <-컨테이너 실행
 # 이미지 도커허브에 배포
 
 * 1 단계 : docker commit 명령을 통한 컨테이너의 현재 상태 이미지 파일로 생성
-* docker commit <option> <container name> <image name>:<tag>
 <pre>
 <code>
 $ sudo docker commit dockerhub_test heejowoo/python_torch_gpu_docker:v0.3
@@ -149,7 +148,6 @@ $ sudo docker commit dockerhub_test heejowoo/python_torch_gpu_docker:v0.3
 </pre>
 
 * 2 단계 : tag달기
-* docker tag <image name>:<tag> <dockerID>/repository>:<tag>
 <pre>
 <code>
 $ sudo docker tag dockerhub_test:v0.5 heejowoo/dockerhub_test:v0.5
