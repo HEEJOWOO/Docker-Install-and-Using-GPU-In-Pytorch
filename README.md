@@ -1,4 +1,4 @@
-(Docker 설치과정, 컨테이너 내 Pytorch에서 GPU 사용,Ubuntu 18.04 LTS에서 진행)[https://docs.docker.com/engine/install/ubuntu/#install-from-a-package]
+[Docker 설치과정, 컨테이너 내 Pytorch에서 GPU 사용,Ubuntu 18.04 LTS에서 진행](https://docs.docker.com/engine/install/ubuntu/#install-from-a-package)
 --------------------------------------------------------------------------
 
 * 준비 단계 : 이미 설치된 Docker 삭제
