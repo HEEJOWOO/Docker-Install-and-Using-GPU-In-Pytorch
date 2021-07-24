@@ -160,7 +160,7 @@ $ sudo docker run -itd --name pytorch_classification -v /home/<username>/share:/
 $ sudo docker ps
 </code>
 </pre>
-<pre>
+
 
 * 5 단계 : 컨테이너 실행
 <pre>
