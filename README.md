@@ -142,7 +142,7 @@ $ sudo docker pull heejowoo/python_torch_gpu_docker:v0.3
 * 2 단계 : 다운로드된 이미지 확인
 <pre>
 <code>
-$ sudo docker imasges <-다운로드된 이미지 확인
+$ sudo docker imasges
 </code>
 </pre>
 
