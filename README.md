@@ -58,3 +58,81 @@ $ sudo chmod +x /usr/local/bin/docker-compose
 </pre>
 
 # Pytorch에서 GPU 사용 
+
+* 1 단계 : nvidia-docker 설치
+<pre>
+<code>
+distribution=$(. /etc/os-release;echo $ID$VERSION_ID)
+curl -s -L https://nvidia.github.io/nvidia-docker/gpgkey | sudo apt-key add -
+curl -s -L https://nvidia.github.io/nvidia-docker/$distribution/nvidia-docker.list | sudo tee /etc/apt/sources.list.d/nvidia-docker.list
+
+$ sudo apt-get update & sudo apt-get install -y nvidia-container-toolkit
+
+$ sudo systemctl restart docker
+</code>
+</pre>
+
+* 2 단계 : pytorch가 사용가능한 이미지 다운
+<pre>
+<code>
+$ sudo docker pull pytorch/pytorch
+</code>
+</pre>
+
+* 3 단계 : 다운받은 docker image 확인, pytorch/pytorch가 존재하면 성공
+<pre>
+<code>
+$ sudo docker images
+</code>
+</pre>
+
+* 4-1 단계 : 컨테이너와 host간 공유 폴더생성 
+<pre>
+<code>
+$ sudo mkdir /home/<user_name>/share_folder
+</code>
+</pre>
+
+* 4-2 단계 : pytorch 컨테이너와 nvidia-docker 연동, user_name에 자신의 사용자 이름을 적어주어야함
+<pre>
+<code>
+$ sudo docker run -itd --name docker_pytorch_nvidia -v /home/<user_name>/share:/root/share -p 8888:8888 --gpus all --restart=always pytorch/pytorch
+</code>
+</pre>
+
+* 5-1 단계 : 생성된 pytorch 컨테이너 생성
+<pre>
+<code>
+$ sudo docker run -itd --name docker_pytorch_nvidia -v /home/<user_name>/share:/root/share -p 8888:8888 --gpus all --restart=always pytorch/pytorch
+</code>
+</pre>
+
+* 5-2 단계 : 생성된 pytorch 컨테이너 실행
+<pre>
+<code>
+$ sudo docker exec -it docker_pytorch_nvidia bash
+</code>
+</pre>
+
+* 6 단계 : GPU 동작 확인
+<pre>
+<code>
+root@_______:/workspace# nvidia-smi
+</code>
+</pre>
+
+# 간단한 pytorch 분류 모델이 들어가 있는 이미지 다운로드 후 확인(개인적으로 만든 이미지 입니다.)
+<pre>
+<code>
+$ sudo docker pull heejowoo/python_torch_gpu_docker:v0.3 <-이미지 다운로드
+$ sudo docker imasges <-다운로드된 이미지 확인
+$ sudo docker run -itd --name pytorch_classification -v /home/<username>/share:/root/share -p 8888:8888 --gpus all --restart=always heejowoo/python_torch_gpu_docker:v0.3 <-컨테이너 생성
+$ sudo docker ps <-생성된 컨테이너 확인
+$ sudo docker exec -it pytorch_classification bash <-컨테이너 실행
+</code>
+</pre>
+
+* 컨테이너 접속 -> workspace에 docker_mount_test.py, gpu_test_pytorch.ipynb 두 개의 파일이 존재
+* docker_mount_test.py : torch 사용여부 버전 확인
+* gpu_test_pytorch.ipynb : jupyter notebook 실행하여 확인
+
