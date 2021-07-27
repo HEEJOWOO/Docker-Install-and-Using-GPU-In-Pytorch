@@ -174,7 +174,7 @@ $ sudo docker exec -it pytorch_classification bash
 * docker_mount_test.py : torch 사용여부 버전 확인
 * gpu_test_pytorch.ipynb : jupyter notebook 실행하여 확인
 
-# 이미지 도커허브에 배포
+# 도커허브에 이미지 배포
 
 * 1 단계 : docker commit 명령을 통한 컨테이너의 현재 상태 이미지 파일로 생성
 <pre>
