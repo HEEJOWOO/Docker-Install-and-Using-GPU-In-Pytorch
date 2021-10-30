@@ -8,7 +8,7 @@
 $ sudo apt-get remove docker docker-engine docker.io containerd runc
 </code>
 </pre>
-
+ 
 * 1 단계 : Docker 레포지토리 추가, apt 커맨드로 필요한 패키지 설치, GPG 키 추가
 <pre>
 <code>
